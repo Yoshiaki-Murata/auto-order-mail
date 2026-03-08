@@ -68,7 +68,9 @@ try {
                                                     <?php endforeach; ?>
                                                 </select>
                                             </td>
-                                            <td class="price text-end">0</td>
+                                            <td class="price text-end">
+                                                0
+                                            </td>
                                             <td>
                                                 <input
                                                     type="number"
