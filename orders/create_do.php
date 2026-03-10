@@ -71,7 +71,7 @@ try {
     $db->commit();
 
     // メール送信
-    send_order_mail($order_id);
+    // send_order_mail($order_id);
     msg("発注が完了しました");
     he("list.php");
 } catch (PDOException $e) {
