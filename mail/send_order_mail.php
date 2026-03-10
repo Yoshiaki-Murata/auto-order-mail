@@ -6,15 +6,15 @@ function send_order_mail($order_id)
     $db = db_connect();
 
     // 発注情報を取得する
-    $sql_orders = "SELECT orders.id,orders.order_date,suppliers.company_name,suppliers. email,suppliers.contact_name
+    $sql_orders = "SELECT orders.id,orders.order_date,suppliers.company_name,suppliers.email,suppliers.contact_name
             FROM orders INNER JOIN suppliers 
             ON suppliers.id=orders.supplier_id 
             WHERE orders.id=:id";
     $stmt_orders = $db->prepare($sql_orders);
-    $stmt_orders->bindParam(":id", $oredr_id, PDO::PARAM_INT);
+    $stmt_orders->bindParam(":id", $order_id, PDO::PARAM_INT);
     $stmt_orders->execute();
 
-    $order = $stmt_orders->fetchAll(PDO::PARAM_INT);
+    $order = $stmt_orders->fetch(PDO::FETCH_ASSOC);
 
     // 部品情報を取得
     $sql_parts = " SELECT parts.part_name,parts.model_number,order_items.quantity
@@ -42,7 +42,7 @@ function send_order_mail($order_id)
     foreach ($items as $p) {
         $body .= $p["part_name"] . "・・・型式:";
         $body .= $p["model_number"] . "  数量:" . $p["quantity"];
-        $body .= "/n";
+        $body .= "\n";
     }
     $body .= "-----------------------------------\n";
     $body .= "よろしくお願いいたします。\n";
