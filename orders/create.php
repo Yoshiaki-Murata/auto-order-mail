@@ -111,7 +111,7 @@ try {
                                     <i class="bi bi-check-circle"></i>
                                     確認画面へ
                                 </button>
-                                <a href="../dashboard/dashboard.php" class="btn btn-outline-secondary btn-lg px-5">
+                                <a href="../index.php" class="btn btn-outline-secondary btn-lg px-5">
                                     戻る
                                 </a>
                             </div>

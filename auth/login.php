@@ -13,13 +13,14 @@ require_once __DIR__ . "/../config/function.php";
             <div class="row justify-content-center">
                 <div class="mb-3 col-6">
                     <label for="name" class="form-label">ユーザー名</label>
-                    <input type="text" name="name" id="name" class="form-control" autocomplete="username" required>
+                    <input type="text" name="name" id="name" class="form-control" autocomplete="username" placeholder="半角英数のみ" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="mb-3 col-6">
                     <label for="password" class="form-label">パスワード</label>
-                    <input type="password" name="password" id="password" class="form-control" autocomplete="current-password" required>
+                    <input type="password" name="password" id="password" class="form-control" autocomplete="current-password" placeholder="半角英数8文字以上"
+                    required>
                 </div>
             </div>
             <div class="mb-3 text-center">

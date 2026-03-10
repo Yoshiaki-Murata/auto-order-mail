@@ -7,7 +7,7 @@ check_login();
 
 check_array($_POST);
 
-// 必須チェックと変スカ
+// 必須チェックと変数化
 $all_array = ["supplier_id", "part_id", "quantity"];
 $int_keys = ["supplier_id", "part_id", "quantity"];
 $required_keys = ["supplier_id", "part_id", "quantity"];
@@ -17,6 +17,7 @@ empty_array_check($_POST, $required_keys, "create.php");
 $supplier_id = (int)$_POST["supplier_id"];
 $part_ids = $_POST["part_id"];
 $qtys = $_POST["quantity"];
+$user_id=$_SESSION["user_id"];
 
 
 $db = db_connect();
@@ -28,7 +29,9 @@ try {
                     VALUES
                     (NOW(),:supplier_id,:user_id,NOW())";
     $stmt_orders = $db->prepare($sql_orders);
-    $stmt->
+    $stmt_orders->bindParam(":supplier_id",$supplier_id,PDO::PARAM_INT);
+    $stmt_orders->bindParam(":user_id",$user_id,PDO::PARAM_INT);
+    $stmt_orders->execute();
 
 } catch (PDOException $e) {
     exit("エラー" . $e->getMessage());

@@ -19,7 +19,7 @@ try {
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="mb-0">企業マスタ管理</h3>
                 <a href="./create.php" class="btn btn-success">
-                    ＋ 新規企業登録
+                    ＋ 新規登録
                 </a>
             </div>
             <div class="card-body">

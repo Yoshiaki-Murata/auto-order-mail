@@ -130,7 +130,7 @@ if (empty($items)) {
                                     <i class="bi bi-cart-check"></i>
                                     発注確定
                                 </button>
-                                <a href="create.php" class="btn btn-outline-secondary btn-lg px-5">
+                                <a href="../index.php" class="btn btn-outline-secondary btn-lg px-5">
                                     戻る
                                 </a>
                             </div>
