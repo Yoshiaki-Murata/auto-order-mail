@@ -17,6 +17,10 @@ check_login();
                 class="list-group-item list-group-item-action">
                 発注業務
             </a>
+               <a href="./users/list.php"
+                class="list-group-item list-group-item-action">
+                ユーザーマスタ管理
+            </a>
             <a href="./suppliers/list.php"
                 class="list-group-item list-group-item-action">
                 企業マスタ管理
