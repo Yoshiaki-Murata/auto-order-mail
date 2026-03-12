@@ -10,7 +10,7 @@ $id = (int)$_POST["id"];
 // post送信から得た情報をもとにDBよりデーターを取得
 try {
     $sql = "SELECT users.id,users.name,users.password,users.user_id,users.role_id,
-		employees.id,employees.employee_number,employees.name AS employee_name,employees.email,
+		employees.id AS employees_id ,employees.employee_number,employees.name AS employee_name,employees.email,
         roles.id,roles.role
 		FROM users 
         INNER JOIN employees ON employees.id =users.user_id
