@@ -56,7 +56,7 @@ function err_msg($str){
 function check_login(){
     if(empty($_SESSION["user_id"])){
         err_msg("不正ログインを検出");
-        he("/order_system/auth/login.php");
+        he("/auto-order-mail/auth/login.php");
         exit();
     }
 }

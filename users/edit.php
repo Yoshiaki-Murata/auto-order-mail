@@ -9,9 +9,18 @@ empty_array_check($_POST, $array, $dir);
 $id = (int)$_POST["id"];
 // post送信から得た情報をもとにDBよりデーターを取得
 try {
-    $sql = "SELECT users.id,users.name,users.password,users.user_id,users.role_id,
-		employees.id AS employees_id ,employees.employee_number,employees.name AS employee_name,employees.email,
-        roles.id,roles.role
+    $sql = "SELECT
+        users.id AS user_primary_id,
+        users.name,
+        users.password,
+        users.user_id,
+        users.role_id,
+	    employees.id AS employees_id,
+        employees.employee_number,
+        employees.name AS employee_name,
+        employees.email,
+        roles.id,
+        roles.role
 		FROM users 
         INNER JOIN employees ON employees.id =users.user_id
         INNER JOIN roles ON roles.id=users.role_id
@@ -41,7 +50,6 @@ try {
 <body>
     <?php include __DIR__ . "/../config/header.php"; ?>
     <main class="container py-5">
-        <?php check_array($_POST); ?>
         <?php include __DIR__ . "/../config/err_and_msg.php"; ?>
         <div class="row justify-content-center">
             <div class="col-lg-8">

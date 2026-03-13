@@ -4,9 +4,18 @@ require_once __DIR__ . "/../config/function.php";
 check_login();
 // 設備マスタ情報をすべて取得
 try {
-    $sql="SELECT users.id,users.name,users.password,users.user_id,users.role_id,
-		employees.id,employees.employee_number,employees.name AS employee_name,employees.email,
-        roles.id,roles.role
+    $sql="SELECT 
+        users.id AS user_primary_id,
+        users.name,
+        users.password,
+        users.user_id,
+        users.role_id,
+		employees.id AS employees_id,
+        employees.employee_number,
+        employees.name AS employee_name,
+        employees.email,
+        roles.id,
+        roles.role
 		FROM users 
         INNER JOIN employees ON employees.id =users.user_id
         INNER JOIN roles ON roles.id=users.role_id;";
@@ -67,12 +76,12 @@ try {
                                             <button class="btn btn-sm btn-success">詳細</button>
                                         </form>
                                         <form action="./edit.php" method="post">
-                                            <input type="hidden" name="id" value="<?= $row["id"] ?>">
+                                            <input type="hidden" name="id" value="<?= $row["user_primary_id"] ?>">
                                             <button class="btn btn-sm btn-primary">編集</button>
                                         </form>
                                         <form action="./delete.php" method="post"
                                             onsubmit="return confirm('削除しますか？');">
-                                            <input type="hidden" name="id" value="<?= $row["id"] ?>">
+                                            <input type="hidden" name="id" value="<?= $row["user_primary_id"] ?>">
                                             <button class="btn btn-sm btn-danger">削除</button>
                                         </form>
                                     </div>
