@@ -19,7 +19,7 @@ try {
         employees.employee_number,
         employees.name AS employee_name,
         employees.email,
-        roles.id,
+        roles.id AS roles_primary_id,
         roles.role
 		FROM users 
         INNER JOIN employees ON employees.id =users.user_id
@@ -62,7 +62,7 @@ try {
                     <div class="card-body p-4">
                         <form action="./edit.do.php" method="post">
                             <input type="hidden" name="csrf_token" value="<?php echo generate_csrf_token(); ?>">
-                            <input type="hidden" name="id" value="<?php echo $result["id"]; ?>">
+                            <input type="hidden" name="id" value="<?php echo $result["user_primary_id"]; ?>">
                             <input type="hidden" name="user_id" value="<?php echo $result["user_id"]; ?>">
                             <div class="mb-4">
                                 <label for="employee_number" class="form-label fw-bold">
@@ -108,7 +108,7 @@ try {
                                 <input
                                     type="text"
                                     name="password"
-                                    id="possword"
+                                    id="password"
                                     class="form-control form-control-lg"
                                     value="">
                             </div>

@@ -23,7 +23,7 @@ function send_order_mail($order_id)
                     ON parts.id=order_items.part_id
                     WHERE order_items.order_id=:id";
     $stmt_parts = $db->prepare($sql_parts);
-    $stmt_parts->bindParam(":id", $oredr_id, PDO::PARAM_INT);
+    $stmt_parts->bindParam(":id", $order_id, PDO::PARAM_INT);
     $stmt_parts->execute();
 
     $items = $stmt_parts->fetchAll(PDO::FETCH_ASSOC);
