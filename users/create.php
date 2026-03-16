@@ -109,7 +109,7 @@ try {
                             </div>
                             <div class="d-flex justify-content-center gap-3 mt-4">
                                 <button class="btn btn-primary btn-lg px-4">
-                                    更新する
+                                    登録する
                                 </button>
                                 <a href="./list.php" class="btn btn-outline-secondary btn-lg px-4">
                                     戻る

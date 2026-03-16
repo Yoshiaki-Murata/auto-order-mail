@@ -38,8 +38,7 @@ check_login();
                 部品マスタ管理
             </a>
             <a href="./export/export_excel.php"
-                class="list-group-item list-group-item-action disabled"
-                aria-disabled="true">
+                class="list-group-item list-group-item-action">
                 データ出力（準備中）
             </a>
         </div>

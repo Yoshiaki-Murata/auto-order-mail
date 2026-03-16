@@ -21,10 +21,16 @@ $stmt = $db->query($sql);
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <?php include __DIR__ . "/../config/page_head.php"; ?>
+
 <body>
     <?php include __DIR__ . "/../config/header.php"; ?>
     <main class="container mt-4">
-        <h2>発注履歴</h2>
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h2>発注履歴</h2>
+            <a href="./create.php" class="btn btn-success">
+                ＋ 新規登録
+            </a>
+        </div>
         <table id="orderTable" class="table table-striped">
             <thead class="table-dark">
                 <tr>
@@ -51,6 +57,11 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="mt-3">
+            <a href="../index.php" class="btn btn-secondary">
+                ← トップに戻る
+            </a>
+        </div>
     </main>
     <script>
         $(document).ready(function() {
