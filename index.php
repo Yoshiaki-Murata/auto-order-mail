@@ -39,7 +39,7 @@ check_login();
             </a>
             <a href="./export/export_excel.php"
                 class="list-group-item list-group-item-action">
-                データ出力（準備中）
+                データ出力
             </a>
         </div>
         <div class="mt-4">

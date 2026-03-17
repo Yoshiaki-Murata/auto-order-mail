@@ -57,7 +57,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <div class="mt-3">
+        <div class="text-center mt-5">
             <a href="../index.php" class="btn btn-secondary">
                 ← トップに戻る
             </a>

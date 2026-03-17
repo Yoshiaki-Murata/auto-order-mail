@@ -20,15 +20,15 @@ if (!empty($_POST)) {
             }
 
             // まだパスワードハッシュしていないので封印
-            // if (!password_verify($password, $result["password"])) {
-            //     err_msg("パスワードが一致しませんでした");
-            //     he("login.php");
-            // }
-            // パスワードハッシュしたら消す
-            if ($password !== $result["password"]) {
+            if (!password_verify($password, $result["password"])) {
                 err_msg("パスワードが一致しませんでした");
                 he("login.php");
             }
+            // パスワードハッシュしたら消す
+            // if ($password !== $result["password"]) {
+            //     err_msg("パスワードが一致しませんでした");
+            //     he("login.php");
+            // }
             session_regenerate_id(true);
             $_SESSION["user_id"] = $result["id"];
             $_SESSION["user_name"] = $result["name"];
