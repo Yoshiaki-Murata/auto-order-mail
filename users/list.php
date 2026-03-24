@@ -71,10 +71,6 @@ try {
                                 </td>
                                 <td>
                                     <div class="d-flex gap-2">
-                                        <form action="./delete.php" method="post">
-                                            <input type="hidden" name="id" value="<?= $row["id"] ?>">
-                                            <button class="btn btn-sm btn-success">詳細</button>
-                                        </form>
                                         <form action="./edit.php" method="post">
                                             <input type="hidden" name="id" value="<?= $row["user_primary_id"] ?>">
                                             <button class="btn btn-sm btn-primary">編集</button>
