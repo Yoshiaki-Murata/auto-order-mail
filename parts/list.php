@@ -94,7 +94,7 @@ INNER JOIN categories ON parts.category_id = categories.id;";
                 </table>
             </div>
         </div>
-        <div class="mt-3">
+        <div class="text-center mt-3">
             <a href="../index.php" class="btn btn-secondary">
                 ← トップに戻る
             </a>

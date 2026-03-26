@@ -36,6 +36,7 @@ $sql = "SELECT
 $recent_orders = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <?php include __DIR__ . "/../config/page_head.php"; ?>
+
 <body>
     <?php include __DIR__ . "/../config/header.php"; ?>
     <main class="container mt-4">
@@ -88,5 +89,10 @@ $recent_orders = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="text-center mt-4">
+            <a href="./../index.php" class="btn btn-secondary px-4 ms-2">
+                戻る
+            </a>
+        </div>
     </main>
 </body>
