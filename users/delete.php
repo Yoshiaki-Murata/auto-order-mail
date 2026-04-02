@@ -14,7 +14,7 @@ empty_array_check($_POST, $required_keys, $dir);
 
 try {
     $params = ph_creat($all_array, $int_keys);
-    $sql = "DELETE FROM parts WHERE id=:id";
+    $sql = "DELETE FROM employees WHERE id=:id";
     $stmt = sql_get($sql);
     $stmt->execute($params);
 
