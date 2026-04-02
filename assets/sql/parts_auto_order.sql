@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2026-03-15 14:21:57
+-- 生成日時: 2026-04-02 09:27:48
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -62,7 +62,9 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `employee_number`, `name`, `email`, `created_at`) VALUES
-(1, '082149', '田中　一郎', 'tanaka1234@example.com', '2026-03-15 22:19:11');
+(1, '082149', '田中　一郎', 'tanaka1234@example.com', '2026-03-15 22:19:11'),
+(2, '082148', '山田太郎', 'yamada-1@example.com', '2026-04-02 16:19:07'),
+(3, '0000000', '佐藤紘一', 'sato1234@example.com', '2026-04-02 16:23:11');
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `order_date`, `supplier_id`, `user_id`, `total_price`, `mail_sent`, `created_at`) VALUES
-(1, '2026-03-10', 1, 1, NULL, 0, '2026-03-10 22:58:15');
+(1, '2026-03-10', 1, 1, 8052000, 0, '2026-03-10 22:58:15'),
+(2, '2026-03-24', 2, 1, 52000, 0, '2026-03-24 16:57:00'),
+(3, '2026-03-24', 2, 1, 90000, 0, '2026-03-24 17:13:04');
 
 -- --------------------------------------------------------
 
@@ -131,7 +135,11 @@ CREATE TABLE `order_items` (
 INSERT INTO `order_items` (`id`, `order_id`, `part_id`, `quantity`, `price`, `total_price`) VALUES
 (1, 1, 1, 8, 2500, 20000),
 (2, 1, 3, 4, 8000, 32000),
-(3, 1, 4, 1, 8000000, 8000000);
+(3, 1, 4, 1, 8000000, 8000000),
+(4, 2, 1, 8, 2500, 20000),
+(5, 2, 3, 4, 8000, 32000),
+(6, 3, 1, 20, 2500, 50000),
+(7, 3, 3, 5, 8000, 40000);
 
 -- --------------------------------------------------------
 
@@ -215,7 +223,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -223,7 +231,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `user_id`, `role_id`, `created_at`) VALUES
-(1, 'tanaka1234', 'tanaka1234', 1, 1, '0000-00-00 00:00:00');
+(1, 'tanaka1234', '$2y$10$k.pEoUq59XvZhEBi.euFiunhDQ4sUZrjHnjV4qNt40Afy1G7qoiD.', 1, 1, '0000-00-00 00:00:00'),
+(2, 'yamada1234', '$2y$10$6brf/42ZdHitrl0SDvID8OzrV/nP3PKve0DOPP4H5jBzqwdrEDiIG', 2, 1, '2026-04-02 16:19:07'),
+(3, 'sato1234', '$2y$10$gb/uiEOHws02FEkeQjWmVeNbdowwtlfqg1oTLjCHM3Yk9wLvhqrra', 3, 2, '2026-04-02 16:23:11');
 
 --
 -- ダンプしたテーブルのインデックス
@@ -308,7 +318,7 @@ ALTER TABLE `categories`
 -- テーブルの AUTO_INCREMENT `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- テーブルの AUTO_INCREMENT `equipment`
@@ -320,13 +330,13 @@ ALTER TABLE `equipment`
 -- テーブルの AUTO_INCREMENT `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- テーブルの AUTO_INCREMENT `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- テーブルの AUTO_INCREMENT `parts`
@@ -350,7 +360,7 @@ ALTER TABLE `suppliers`
 -- テーブルの AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- ダンプしたテーブルの制約
