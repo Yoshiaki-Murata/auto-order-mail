@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2026-04-02 09:27:48
+-- 生成日時: 2026-04-02 09:49:25
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -63,8 +63,7 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`id`, `employee_number`, `name`, `email`, `created_at`) VALUES
 (1, '082149', '田中　一郎', 'tanaka1234@example.com', '2026-03-15 22:19:11'),
-(2, '082148', '山田太郎', 'yamada-1@example.com', '2026-04-02 16:19:07'),
-(3, '0000000', '佐藤紘一', 'sato1234@example.com', '2026-04-02 16:23:11');
+(4, '0000000', '山田太郎', 'yamada-1@example.com', '2026-04-02 16:48:03');
 
 -- --------------------------------------------------------
 
@@ -165,7 +164,7 @@ CREATE TABLE `parts` (
 INSERT INTO `parts` (`id`, `part_name`, `equipment_id`, `model_number`, `price`, `category_id`, `memo`, `created_at`) VALUES
 (1, 'ベアリング', 3, 'abc', 2500, 2, '駆動シャフトのベアリング', '0000-00-00 00:00:00'),
 (3, 'パッキン', 3, 'advsg-156494', 8000, 3, '', '2026-03-10 22:57:11'),
-(4, '搬送モーター', 1, 'dnaskogaiohoiv-15664', 8000000, 1, '', '2026-03-10 22:57:44');
+(4, '搬送モーター', 1, 'dnaskogaiohoiv-15664', 80000, 1, '', '2026-03-10 22:57:44');
 
 -- --------------------------------------------------------
 
@@ -232,8 +231,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `password`, `user_id`, `role_id`, `created_at`) VALUES
 (1, 'tanaka1234', '$2y$10$k.pEoUq59XvZhEBi.euFiunhDQ4sUZrjHnjV4qNt40Afy1G7qoiD.', 1, 1, '0000-00-00 00:00:00'),
-(2, 'yamada1234', '$2y$10$6brf/42ZdHitrl0SDvID8OzrV/nP3PKve0DOPP4H5jBzqwdrEDiIG', 2, 1, '2026-04-02 16:19:07'),
-(3, 'sato1234', '$2y$10$gb/uiEOHws02FEkeQjWmVeNbdowwtlfqg1oTLjCHM3Yk9wLvhqrra', 3, 2, '2026-04-02 16:23:11');
+(4, 'yamada1234', '$2y$10$kqRvsSAV93JFpRzded1GNuc56tvhR3y6Q6kdj0Hx7S1DLC7GHAThS', 4, 2, '2026-04-02 16:48:03');
 
 --
 -- ダンプしたテーブルのインデックス
@@ -318,7 +316,7 @@ ALTER TABLE `categories`
 -- テーブルの AUTO_INCREMENT `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- テーブルの AUTO_INCREMENT `equipment`
@@ -360,7 +358,7 @@ ALTER TABLE `suppliers`
 -- テーブルの AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- ダンプしたテーブルの制約
@@ -398,7 +396,7 @@ ALTER TABLE `parts`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `employees` (`id`);
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
